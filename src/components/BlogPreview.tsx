@@ -47,24 +47,28 @@ export default function BlogPreview() {
   const ref = useScrollFadeIn();
 
   return (
-    <section id="blog" className="py-24 px-4">
+    <section id="blog" className="py-32 px-6">
       <div ref={ref} className="fade-in-section max-w-5xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-12 text-center">Blog</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="apple-divider mb-16" />
+        <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4 text-center">Insights</p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-16 text-center tracking-tight">
+          Blog
+        </h2>
+        <div className="grid md:grid-cols-2 gap-5">
           {blogArticles.map((a) => (
             <article
               key={a.slug}
-              className="border border-border rounded-lg p-6 bg-card hover:border-gold/40 hover:shadow-lg transition-all"
+              className="group border border-border rounded-2xl p-7 bg-surface-1 hover:border-muted-foreground/20 surface-glow hover:surface-glow-hover transition-all duration-500"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-muted-foreground">{a.date}</span>
-                <span className="font-mono text-xs text-muted-foreground">· {a.readingTime} Lesezeit</span>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-mono text-[11px] text-muted-foreground">{a.date}</span>
+                <span className="font-mono text-[11px] text-muted-foreground">· {a.readingTime} Lesezeit</span>
               </div>
-              <h3 className="font-bold text-foreground mb-2 leading-snug">{a.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{a.excerpt}</p>
+              <h3 className="font-semibold text-foreground mb-3 leading-snug text-lg group-hover:text-gradient-gold transition-all duration-300">{a.title}</h3>
+              <p className="text-sm text-muted-foreground mb-5 font-light leading-relaxed">{a.excerpt}</p>
               <Link
                 to={`/blog/${a.slug}`}
-                className="text-sm text-gold hover:underline font-medium"
+                className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-300"
               >
                 Weiterlesen →
               </Link>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -16,38 +15,36 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
-        <a href="#home" className="font-bold text-foreground tracking-tight text-lg">
-          AM
+    <nav className="fixed top-0 left-0 right-0 z-50 glass glass-border border-t-0 border-x-0">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-12">
+        <a href="#home" className="font-semibold text-foreground tracking-tight text-sm">
+          Anton Melnychuk
         </a>
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md"
+              className="px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 rounded-full"
             >
               {l.label}
             </a>
           ))}
-          <ThemeToggle />
         </div>
-        <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
+        <div className="flex md:hidden">
           <button onClick={() => setOpen(!open)} aria-label="Menü" className="p-2 text-foreground">
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4">
+        <div className="md:hidden glass px-6 pb-6 pt-2">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {l.label}
             </a>
