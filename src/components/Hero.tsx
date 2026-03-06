@@ -5,43 +5,51 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dark mode gold orb */}
-      <div className="hidden dark:block absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/5 blur-3xl pointer-events-none" />
-      {/* Subtle code decoration */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="text-[12rem] sm:text-[18rem] font-mono text-foreground/[0.03] leading-none">
-          {"{ }"}
-        </span>
-      </div>
+      {/* Ambient glow — Apple style */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, hsla(43, 52%, 54%, 0.04) 0%, transparent 70%)",
+        }}
+      />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{
+          backgroundImage: "linear-gradient(hsla(0,0%,100%,0.1) 1px, transparent 1px), linear-gradient(90deg, hsla(0,0%,100%,0.1) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-      <div ref={ref} className="fade-in-section relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground mb-6 uppercase">
-          ◆ Solopreneur · Developer · DACH
+      <div ref={ref} className="fade-in-section relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground mb-8 uppercase">
+          Solopreneur · Developer · DACH
         </p>
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-4">
-          Anton Melnychuk
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-gradient leading-[1.05]">
+          Anton<br />Melnychuk
         </h1>
-        <p className="text-lg sm:text-xl text-gold font-medium mb-6">
+        <p className="text-lg sm:text-xl font-light text-muted-foreground mb-4 tracking-wide">
           AI-powered Indie Developer
         </p>
-        <p className="text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-          „Ich baue KI-gestützte Micro-SaaS-Produkte für den deutschsprachigen Markt — von der Idee bis zum ersten zahlenden Kunden."
+        <p className="text-muted-foreground max-w-lg mx-auto mb-12 leading-relaxed text-sm font-light">
+          Ich baue KI-gestützte Micro-SaaS-Produkte für den deutschsprachigen Markt — von der Idee bis zum ersten zahlenden Kunden.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#portfolio"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm hover:bg-primary/90 transition-all duration-300"
           >
             Portfolio ansehen
           </a>
           <a
             href="#kontakt"
-            className="px-6 py-3 border border-border text-foreground rounded-lg font-medium text-sm hover:bg-secondary transition-colors"
+            className="px-8 py-3 border border-border text-foreground rounded-full font-medium text-sm hover:border-muted-foreground/50 transition-all duration-300"
           >
             Kontakt aufnehmen
           </a>
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

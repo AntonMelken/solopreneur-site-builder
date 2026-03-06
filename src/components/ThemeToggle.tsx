@@ -18,9 +18,9 @@ export default function ThemeToggle() {
     <button
       onClick={() => setDark((d) => !d)}
       aria-label={dark ? "Helles Design aktivieren" : "Dunkles Design aktivieren"}
-      className="p-2 rounded-md text-foreground hover:bg-secondary transition-colors"
+      className="p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-300"
     >
-      {dark ? <Sun size={18} /> : <Moon size={18} />}
+      {dark ? <Sun size={14} /> : <Moon size={14} />}
     </button>
   );
 }

@@ -1,7 +1,9 @@
+@import '@fontsource/inter/300.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
 @import '@fontsource/dm-mono/400.css';
 @import '@fontsource/dm-mono/500.css';
 
@@ -11,68 +13,58 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 26% 14%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 26% 14%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 26% 14%;
-    --primary: 240 15% 14%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 240 15% 14%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-    --accent: 43 52% 54%;
-    --accent-foreground: 0 0% 100%;
+    /* Apple-inspired dark design — "angenehm schwarz" */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 14%;
+    --accent-foreground: 0 0% 98%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 240 15% 14%;
-    --radius: 0.5rem;
-    --gold: 43 52% 54%;
-    --gold-foreground: 0 0% 100%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 
-  .dark {
-    --background: 240 20% 4%;
-    --foreground: 36 9% 87%;
-    --card: 240 18% 6%;
-    --card-foreground: 36 9% 87%;
-    --popover: 240 18% 6%;
-    --popover-foreground: 36 9% 87%;
-    --primary: 43 52% 54%;
-    --primary-foreground: 240 20% 4%;
-    --secondary: 240 14% 12%;
-    --secondary-foreground: 36 9% 87%;
-    --muted: 240 14% 12%;
-    --muted-foreground: 220 9% 56%;
-    --accent: 43 52% 54%;
-    --accent-foreground: 240 20% 4%;
-    --destructive: 0 62% 31%;
-    --destructive-foreground: 36 9% 87%;
-    --border: 240 14% 14%;
-    --input: 240 14% 14%;
-    --ring: 43 52% 54%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 40%;
+
+    --radius: 0.75rem;
+
+    /* Apple signature accent — refined blue */
+    --apple-blue: 211 100% 50%;
+    --apple-blue-foreground: 0 0% 100%;
+
+    /* Subtle gold for premium touch */
     --gold: 43 52% 54%;
-    --gold-foreground: 240 20% 4%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --gold-foreground: 0 0% 0%;
+
+    /* Surface layers */
+    --surface-1: 0 0% 4%;
+    --surface-2: 0 0% 8%;
+    --surface-3: 0 0% 12%;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 211 100% 50%;
   }
 }
 
@@ -82,6 +74,8 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     scroll-behavior: smooth;
@@ -89,18 +83,73 @@
 }
 
 @layer utilities {
-  .font-mono-label {
-    font-family: 'DM Mono', monospace;
+  .text-gradient {
+    background: linear-gradient(
+      to right,
+      hsl(0 0% 100%),
+      hsl(0 0% 65%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      hsl(43 52% 64%),
+      hsl(43 52% 44%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsla(0, 0%, 8%, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .glass-border {
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+  }
+
+  .surface-glow {
+    box-shadow: 
+      0 0 0 1px hsla(0, 0%, 100%, 0.05),
+      0 2px 8px -2px hsla(0, 0%, 0%, 0.5),
+      0 8px 24px -4px hsla(0, 0%, 0%, 0.4);
+  }
+
+  .surface-glow-hover {
+    box-shadow: 
+      0 0 0 1px hsla(0, 0%, 100%, 0.1),
+      0 4px 12px -2px hsla(0, 0%, 0%, 0.6),
+      0 12px 32px -4px hsla(0, 0%, 0%, 0.5);
   }
 }
 
 /* Fade-in animation for scroll */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Separator line — Apple style */
+.apple-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    hsla(0, 0%, 100%, 0.08) 20%,
+    hsla(0, 0%, 100%, 0.08) 80%,
+    transparent
+  );
 }
