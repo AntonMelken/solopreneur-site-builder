@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 function SectionNotice({ text }: { text: string }) {
   return (
