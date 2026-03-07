@@ -2,21 +2,21 @@ import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 const groups = [
   {
-    title: "Frontend",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Next.js", "shadcn/ui", "HTML", "CSS"],
+    title: "iOS Development",
+    skills: ["Swift", "SwiftUI", "MapKit", "CoreLocation", "StoreKit", "iOS 17+"],
+  },
+  {
+    title: "Frontend & Web",
+    skills: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "HTML", "CSS"],
   },
   {
     title: "Backend & APIs",
-    skills: ["Node.js", "Supabase", "REST APIs", "Claude API", "Stripe", "Lemon Squeezy"],
+    skills: ["Supabase", "REST APIs", "Claude API", "OpenChargeMap API", "Stripe"],
     highlight: ["Claude API"],
   },
   {
-    title: "Build & Deploy",
-    skills: ["Vercel", "Git", "GitHub", "Lovable", "Gumroad"],
-  },
-  {
-    title: "Produkt & Strategie",
-    skills: ["Micro-SaaS", "MVP-Entwicklung", "DACH-Markt", "Produktvalidierung", "Preisfindung"],
+    title: "Produkt & Deploy",
+    skills: ["App Store", "GitHub", "Vercel", "DSGVO-Compliance", "Freemium-Modelle", "Subscription"],
   },
 ];
 
