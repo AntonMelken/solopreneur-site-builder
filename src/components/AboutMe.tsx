@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 export default function AboutMe() {
@@ -42,10 +42,13 @@ export default function AboutMe() {
               <a href="https://github.com/antonmelken" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Github size={18} />
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/anton-melnychuk-42230a273" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:antosic200@gmail.com" aria-label="E-Mail" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <a href="https://www.instagram.com/gghlhf" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+                <Instagram size={18} />
+              </a>
+              <a href="mailto:contact@melnychuk-anton.de" aria-label="E-Mail" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Mail size={18} />
               </a>
             </div>
