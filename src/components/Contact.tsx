@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
-    const mailtoLink = `mailto:deine@email.de?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:contact@melnychuk-anton.de?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
       `Name: ${form.name}\nE-Mail: ${form.email}\n\n${form.message}`
     )}`;
     window.location.href = mailtoLink;
@@ -97,12 +97,17 @@ export default function Contact() {
         )}
 
         <div className="flex items-center justify-center gap-5 mt-12">
-          <span className="text-xs text-muted-foreground font-mono">[DEINE@EMAIL.DE]</span>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="mailto:contact@melnychuk-anton.de" className="text-xs text-muted-foreground font-mono hover:text-foreground transition-colors duration-300">
+            contact@melnychuk-anton.de
+          </a>
+          <a href="https://github.com/antonmelken" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
             <Github size={16} />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="https://www.linkedin.com/in/anton-melnychuk-42230a273" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
             <Linkedin size={16} />
+          </a>
+          <a href="https://www.instagram.com/gghlhf" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+            <Instagram size={16} />
           </a>
         </div>
       </div>
