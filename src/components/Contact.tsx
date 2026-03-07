@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Send } from "lucide-react";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Link } from "react-router-dom";
 
@@ -26,36 +26,40 @@ export default function Contact() {
     setSubmitted(true);
   };
 
-  const inputClasses = "w-full px-4 py-3 rounded-xl border border-border bg-surface-1 text-foreground text-sm font-light focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus:border-muted-foreground/30 transition-all duration-300 placeholder:text-muted-foreground/40";
+  const inputClasses =
+    "w-full px-4 py-3 rounded-xl bg-surface-1 text-foreground text-sm font-light transition-all duration-200 placeholder:text-muted-foreground/35 input-apple";
 
   return (
     <section id="kontakt" aria-labelledby="kontakt-heading" className="py-32 px-6">
       <div ref={ref} className="fade-in-section max-w-lg mx-auto">
         <div className="apple-divider mb-16" />
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4 text-center">Kontakt</p>
-        <h2 id="kontakt-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center tracking-tight">
-          Lass uns sprechen.
+        <h2
+          id="kontakt-heading"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center tracking-tight"
+        >
+          Gemeinsam mehr erreichen.
         </h2>
         <p className="text-muted-foreground text-center mb-12 text-sm font-light leading-relaxed max-w-md mx-auto">
-          Ich bin offen für Kooperationen, Feedback zu meinen Produkten oder einfach einen Austausch über
-          Indie-Development im DACH-Markt.
+          Sie haben ein Projekt, eine Idee oder möchten mehr über meine Arbeit erfahren?
+          Ich freue mich auf Ihre Nachricht — und antworte in der Regel innerhalb von 24 Stunden.
         </p>
 
         {submitted ? (
           <div className="text-center py-16 border border-border rounded-2xl bg-surface-1 surface-glow">
-            <p className="text-foreground font-medium">Vielen Dank!</p>
-            <p className="text-muted-foreground text-sm font-light mt-2">Ich melde mich so bald wie möglich.</p>
+            <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: "hsla(211,100%,44%,0.12)" }}>
+              <Send size={20} style={{ color: "hsl(211,100%,60%)" }} />
+            </div>
+            <p className="text-foreground font-semibold text-lg mb-2">Nachricht gesendet!</p>
+            <p className="text-muted-foreground text-sm font-light">Ich melde mich so bald wie möglich bei Ihnen.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4" noValidate aria-label="Kontaktformular">
             <div>
               <label htmlFor="name" className="block text-xs font-medium text-muted-foreground mb-2">Name *</label>
               <input
-                id="name"
-                type="text"
-                required
-                autoComplete="name"
-                placeholder="Max Mustermann"
+                id="name" type="text" required autoComplete="name"
+                placeholder="Ihr Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className={inputClasses}
@@ -64,11 +68,8 @@ export default function Contact() {
             <div>
               <label htmlFor="email" className="block text-xs font-medium text-muted-foreground mb-2">E-Mail *</label>
               <input
-                id="email"
-                type="email"
-                required
-                autoComplete="email"
-                placeholder="max@beispiel.de"
+                id="email" type="email" required autoComplete="email"
+                placeholder="ihre@email.de"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className={inputClasses}
@@ -77,10 +78,7 @@ export default function Contact() {
             <div>
               <label htmlFor="subject" className="block text-xs font-medium text-muted-foreground mb-2">Betreff *</label>
               <input
-                id="subject"
-                type="text"
-                required
-                autoComplete="off"
+                id="subject" type="text" required autoComplete="off"
                 placeholder="Worum geht es?"
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
@@ -89,63 +87,56 @@ export default function Contact() {
             </div>
             <div>
               <label htmlFor="message" className="block text-xs font-medium text-muted-foreground mb-2">
-                Nachricht * <span className="text-muted-foreground font-normal">(mind. 20 Zeichen)</span>
+                Nachricht * <span className="text-muted-foreground/60 font-normal">(mind. 20 Zeichen)</span>
               </label>
               <textarea
-                id="message"
-                required
-                rows={5}
-                autoComplete="off"
-                placeholder="Deine Nachricht an mich..."
+                id="message" required rows={5} autoComplete="off"
+                placeholder="Ihre Nachricht..."
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className={`${inputClasses} resize-y`}
               />
             </div>
+
             <div className="flex items-start gap-3 pt-2">
               <input
-                id="privacy"
-                type="checkbox"
+                id="privacy" type="checkbox"
                 checked={privacy}
                 onChange={(e) => setPrivacy(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-border bg-surface-2 accent-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="mt-0.5 w-4 h-4 rounded border-border bg-surface-2 cursor-pointer"
+                style={{ accentColor: "hsl(211,100%,44%)" }}
               />
-              <label htmlFor="privacy" className="text-[11px] text-muted-foreground leading-relaxed">
+              <label htmlFor="privacy" className="text-[11px] text-muted-foreground leading-relaxed cursor-pointer">
                 Ich habe die{" "}
-                <Link to="/datenschutz" className="underline hover:text-foreground transition-colors duration-300">
+                <Link to="/datenschutz" className="underline hover:text-foreground transition-colors duration-200">
                   Datenschutzerklärung
                 </Link>{" "}
-                gelesen und stimme der Verarbeitung meiner personenbezogenen Daten zur Bearbeitung meiner
-                Anfrage zu. *
+                gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *
               </label>
             </div>
+
             <button
               type="submit"
               disabled={!isValid}
-              className="w-full py-3.5 bg-primary text-primary-foreground rounded-xl text-sm font-medium disabled:opacity-20 disabled:cursor-not-allowed hover:bg-primary/90 transition-all duration-300 mt-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="w-full py-3.5 rounded-xl text-sm font-semibold disabled:opacity-20 disabled:cursor-not-allowed mt-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 flex items-center justify-center gap-2 btn-primary"
             >
+              <Send size={14} />
               Nachricht senden
             </button>
           </form>
         )}
 
-        <div className="flex items-center justify-center gap-5 mt-12">
+        <div className="flex items-center justify-center gap-5 mt-12 pt-10 border-t border-border/40">
           <a
             href="mailto:contact@melnychuk-anton.de"
-            title="E-Mail an Anton Melnychuk senden"
-            className="text-xs text-muted-foreground font-mono hover:text-foreground transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-sm"
+            className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono hover:text-foreground transition-colors duration-200"
           >
+            <Mail size={12} />
             contact@melnychuk-anton.de
           </a>
-          <a href="https://github.com/antonmelken" target="_blank" rel="noopener noreferrer" aria-label="GitHub-Profil von Anton Melnychuk" title="GitHub-Profil" className="text-muted-foreground hover:text-foreground transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-sm">
-            <Github size={16} />
-          </a>
-          <a href="https://www.linkedin.com/in/anton-melnychuk-42230a273" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn-Profil von Anton Melnychuk" title="LinkedIn-Profil" className="text-muted-foreground hover:text-foreground transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-sm">
-            <Linkedin size={16} />
-          </a>
-          <a href="https://www.instagram.com/gghlhf" target="_blank" rel="noopener noreferrer" aria-label="Instagram-Profil von Anton Melnychuk" title="Instagram-Profil" className="text-muted-foreground hover:text-foreground transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-sm">
-            <Instagram size={16} />
-          </a>
+          <a href="https://github.com/antonmelken" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-200"><Github size={15} /></a>
+          <a href="https://www.linkedin.com/in/anton-melnychuk-42230a273" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-200"><Linkedin size={15} /></a>
+          <a href="https://www.instagram.com/gghlhf" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-foreground transition-colors duration-200"><Instagram size={15} /></a>
         </div>
       </div>
     </section>
