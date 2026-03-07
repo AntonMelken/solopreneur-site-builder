@@ -20,33 +20,32 @@ export default function AboutMe() {
           <div>
             <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4">Über mich</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 tracking-tight">
-              Entwickler.<br />Solopreneur.<br />
-              <span className="text-gradient-gold">Macher.</span>
+              Entwickler.<br />Maker.<br />
+              <span className="text-gradient-gold">Allrounder.</span>
             </h2>
             <div className="space-y-5 text-muted-foreground leading-[1.8] text-[15px] font-light max-w-xl">
               <p>
-                Ich bin Anton Melnychuk — Entwickler und Solopreneur mit Fokus auf den DACH-Markt. Ich baue
-                KI-gestützte Web-Applikationen, die echte Schmerzpunkte für kleine Unternehmen, Handwerker
-                und Selbstständige lösen.
+                Ich bin Anton Melnychuk — ein selbst gelernter Entwickler, der digitale Produkte von Anfang bis Ende baut.
+                Vom ersten Konzept über Design und Entwicklung bis zum fertigen Launch. Aktuell mit Fokus auf iOS,
+                aber mein Horizont reicht weiter: Web-Apps, Games, und alles, was als nächstes kommt.
               </p>
               <p>
-                Mein Ansatz: Validierung vor Perfektion. Ich launche in Stunden, nicht Monaten — und lasse
-                zahlende Kunden entscheiden, was gebaut wird. Mein Werkzeugkasten: Claude AI, React, Supabase
-                und Lovable.
+                Ich arbeite mit modernen Tools und Workflows — darunter auch KI. Nicht als Abkürzung, sondern als
+                fester Bestandteil meiner Arbeitsweise. Wie jeder gute Handwerker, der das richtige Werkzeug für
+                den richtigen Job wählt.
               </p>
               <p>
-                Ziel: Ein System aufbauen, das unabhängig von meiner Zeit funktioniert — Produkte, die
-                Mehrwert liefern, während ich schlafe.
+                Mein Antrieb: Dinge wirklich bauen. Validieren, launchen, verbessern — und dabei unabhängig bleiben.
               </p>
             </div>
             <div className="flex items-center gap-5 mt-8">
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <a href="https://github.com/antonmelken" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Github size={18} />
               </a>
               <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:deine@email.de" aria-label="E-Mail" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+              <a href="mailto:antosic200@gmail.com" aria-label="E-Mail" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                 <Mail size={18} />
               </a>
             </div>
