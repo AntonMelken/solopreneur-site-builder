@@ -5,7 +5,6 @@ const links = [
   { label: "Home",        href: "#home",       title: "Zur Startseite" },
   { label: "Über mich",   href: "#ueber-mich", title: "Mehr über Anton Melnychuk" },
   { label: "Skills",      href: "#skills",     title: "Technische Kompetenzen" },
-  { label: "Portfolio",   href: "#portfolio",  title: "Ausgewählte Projekte" },
   { label: "Lebenslauf",  href: "#lebenslauf", title: "Beruflicher Werdegang" },
   { label: "Blog",        href: "#blog",       title: "Blog & Insights" },
   { label: "Kontakt",     href: "#kontakt",    title: "Kontakt aufnehmen" },
