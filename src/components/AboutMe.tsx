@@ -11,8 +11,8 @@ export default function AboutMe() {
         <div className="grid md:grid-cols-[180px_1fr] gap-16 items-start">
           {/* Photo */}
           <div className="flex justify-center md:justify-start">
-            <div className="w-40 h-40 rounded-full bg-surface-2 border border-border flex items-center justify-center overflow-hidden">
-              <span className="text-[10px] text-muted-foreground font-mono text-center px-4">Foto hier einfügen</span>
+            <div className="w-40 h-40 rounded-full border border-border overflow-hidden">
+              <img src="/my_profile_photo.png" alt="Anton Melnychuk" className="w-full h-full object-cover" />
             </div>
           </div>
 
