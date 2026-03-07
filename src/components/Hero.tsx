@@ -21,16 +21,16 @@ export default function Hero() {
 
       <div ref={ref} className="fade-in-section relative z-10 text-center px-6 max-w-4xl mx-auto">
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground mb-8 uppercase">
-          Solopreneur · Developer · DACH
+          Indie Maker · iOS · Web · DACH
         </p>
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-gradient leading-[1.05]">
           Anton<br />Melnychuk
         </h1>
         <p className="text-lg sm:text-xl font-light text-muted-foreground mb-4 tracking-wide">
-          AI-powered Indie Developer
+          Independent Digital Creator
         </p>
         <p className="text-muted-foreground max-w-lg mx-auto mb-12 leading-relaxed text-sm font-light">
-          Ich baue KI-gestützte Micro-SaaS-Produkte für den deutschsprachigen Markt — von der Idee bis zum ersten zahlenden Kunden.
+          Ich baue digitale Produkte von der Idee bis zum Launch — iOS Apps, Web-Tools und was als Nächstes kommt. Allein. Konsequent. Mit den besten Werkzeugen, die es gibt.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
