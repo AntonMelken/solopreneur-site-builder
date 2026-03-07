@@ -10,8 +10,12 @@ import Footer from "@/components/Footer";
 
 const Index = () => (
   <>
+    {/* Skip-Navigation für Tastaturnutzer (BFSG) */}
+    <a href="#main-content" className="skip-link">
+      Zum Hauptinhalt springen
+    </a>
     <Navbar />
-    <main>
+    <main id="main-content">
       <Hero />
       <AboutMe />
       <Skills />
