@@ -7,7 +7,16 @@ const projects: {
   tech: string[];
   github?: string;
   live?: string;
-}[] = [];
+}[] = [
+  {
+    name: "Auto Performance Tracker",
+    niche: "iOS App · Mobilität",
+    description:
+      "GPS-basierter Fahrassistent mit farbkodiertem Echtzeit-Tracking, Driving Score in 7 Dimensionen, Kraftstoffanalyse und KI-Fahrtipps. Freemium-Modell mit Jahres- und Monatsabo. DSGVO-konform auf EU-Servern.",
+    tech: ["Swift", "SwiftUI", "MapKit", "Supabase", "StoreKit", "Claude API"],
+    live: "https://antonmelken.github.io/auto-performance-tracker/",
+  },
+];
 
 export default function Portfolio() {
   const ref = useScrollFadeIn();
@@ -52,7 +61,7 @@ export default function Portfolio() {
                   )}
                   {p.live && (
                     <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300">
-                      Live Demo →
+                      Zur App →
                     </a>
                   )}
                 </div>
