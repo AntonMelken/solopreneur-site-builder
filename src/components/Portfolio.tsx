@@ -14,9 +14,9 @@ const projects: {
 }[] = [
   {
     name: "Auto Performance Tracker",
-    niche: "iOS App · Mobilität & Analytics",
+    niche: "iOS App · Navigation & Produktivität",
     description:
-      "GPS-basierter Fahrassistent mit farbkodiertem Echtzeit-Tracking und einem mehrdimensionalen Driving Score. Inkl. Kraftstoffanalyse, KI-Fahrtipps via Claude API sowie einem durchdachten Freemium-Monetarisierungsmodell. Vollständig DSGVO-konform auf EU-Servern.",
+      "GPS-basierter Fahrassistent mit farbkodiertem Echtzeit-Tracking und einem mehrdimensionalen Driving Score. Inkl. Kraftstoffanalyse, Smart-Fahrtipps sowie einem durchdachten Freemium-Monetarisierungsmodell. Vollständig DSGVO-konform auf EU-Servern.",
     tech: ["Swift", "SwiftUI", "MapKit", "Supabase", "StoreKit", "Claude API"],
     badge: "badge-blue",
     accentColor: "hsla(211,100%,44%,0.08)",
