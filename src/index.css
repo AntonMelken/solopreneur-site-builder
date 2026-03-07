@@ -153,3 +153,34 @@
     transparent
   );
 }
+
+/* ── Barrierefreiheit: Sichtbarer Fokus-Ring für Tastaturnavigation ── */
+@layer base {
+  /* Globaler Fokus-Ring für alle interaktiven Elemente */
+  :focus-visible {
+    outline: 2px solid hsl(0 0% 100% / 0.8);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Überspringen-Link für Tastaturnutzer (Skip-Navigation) */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 0.75rem 1.5rem;
+    background: hsl(0 0% 100%);
+    color: hsl(0 0% 0%);
+    font-size: 0.875rem;
+    font-weight: 600;
+    z-index: 9999;
+    border-radius: 0 0 0.5rem 0;
+    text-decoration: none;
+    transition: top 0.1s;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid hsl(211 100% 50%);
+    outline-offset: 2px;
+  }
+}
