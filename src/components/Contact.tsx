@@ -30,7 +30,7 @@ export default function Contact() {
     "w-full px-4 py-3 rounded-xl bg-surface-1 text-foreground text-sm font-light transition-all duration-200 placeholder:text-muted-foreground/35 input-apple";
 
   return (
-    <section id="kontakt" aria-labelledby="kontakt-heading" className="py-32 px-6">
+    <section id="kontakt" aria-labelledby="kontakt-heading" className="py-20 sm:py-28 px-6">
       <div ref={ref} className="fade-in-section max-w-lg mx-auto">
         <div className="apple-divider mb-16" />
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4 text-center">Kontakt</p>
