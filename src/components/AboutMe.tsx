@@ -11,7 +11,7 @@ export default function AboutMe() {
   const ref = useScrollFadeIn();
 
   return (
-    <section id="ueber-mich" className="py-32 px-6 relative" style={{ background: "linear-gradient(180deg, transparent, hsla(211,100%,44%,0.025) 50%, transparent)" }}>
+    <section id="ueber-mich" className="py-20 sm:py-28 px-6 relative" style={{ background: "linear-gradient(180deg, transparent, hsla(211,100%,44%,0.025) 50%, transparent)" }}>
       <div ref={ref} className="fade-in-section max-w-5xl mx-auto">
         <div className="apple-divider mb-16" />
 
