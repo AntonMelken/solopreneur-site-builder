@@ -62,7 +62,7 @@ export default function Skills() {
   const ref = useScrollFadeIn();
 
   return (
-    <section id="skills" className="py-32 px-6">
+    <section id="skills" className="py-20 sm:py-28 px-6">
       <div ref={ref} className="fade-in-section max-w-5xl mx-auto">
         <div className="apple-divider mb-16" />
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4 text-center">Kompetenzen</p>
