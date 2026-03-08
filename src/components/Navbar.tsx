@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Home",        href: "#home",       title: "Zur Startseite" },
   { label: "Über mich",   href: "#ueber-mich", title: "Mehr über Anton Melnychuk" },
+  { label: "Portfolio",   href: "#portfolio",  title: "Meine Projekte" },
   { label: "Skills",      href: "#skills",     title: "Technische Kompetenzen" },
   { label: "Blog",        href: "#blog",       title: "Blog & Insights" },
   { label: "Kontakt",     href: "#kontakt",    title: "Kontakt aufnehmen" },
