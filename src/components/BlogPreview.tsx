@@ -7,7 +7,7 @@ export default function BlogPreview() {
   const ref = useScrollFadeIn();
 
   return (
-    <section id="blog" className="py-32 px-6" style={{ background: "linear-gradient(180deg, transparent, hsla(211,100%,44%,0.025) 50%, transparent)" }}>
+    <section id="blog" className="py-20 sm:py-28 px-6" style={{ background: "linear-gradient(180deg, transparent, hsla(211,100%,44%,0.025) 50%, transparent)" }}>
       <div ref={ref} className="fade-in-section max-w-5xl mx-auto">
         <div className="apple-divider mb-16" />
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground uppercase mb-4 text-center">Insights</p>
