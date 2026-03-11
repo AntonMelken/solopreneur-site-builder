@@ -18,7 +18,7 @@ export default function Datenschutz() {
               <a href="mailto:contact@melnychuk-anton.de" className="underline hover:text-foreground transition-colors duration-300">
                 contact@melnychuk-anton.de
               </a><br />
-              Telefon: +49 175 3797891
+
             </p>
           </section>
           <div className="apple-divider" />
