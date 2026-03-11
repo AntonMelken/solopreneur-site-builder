@@ -73,10 +73,16 @@ export default function Datenschutz() {
             </p>
             <p className="mt-2">
               Wenn Sie mir eine E-Mail senden, verarbeite ich die übermittelten Daten ausschließlich
-              zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
-              (berechtigtes Interesse an der Beantwortung von Kontaktanfragen). Die Daten werden nach
-              abschließender Bearbeitung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten
-              entgegenstehen. Eine Weitergabe an Dritte erfolgt nicht.
+              zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO
+              (Einwilligung), die Sie durch Aktivierung der Datenschutz-Checkbox im Formular erteilen.
+              Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie
+              mir eine formlose E-Mail an{" "}
+              <a href="mailto:contact@melnychuk-anton.de" className="underline hover:text-foreground transition-colors duration-300">
+                contact@melnychuk-anton.de
+              </a>{" "}
+              senden. Die Daten werden nach abschließender Bearbeitung der Anfrage gelöscht, spätestens
+              nach 3 Jahren, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+              Eine Weitergabe an Dritte erfolgt nicht.
             </p>
           </section>
           <div className="apple-divider" />

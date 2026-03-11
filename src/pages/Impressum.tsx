@@ -30,7 +30,8 @@ export default function Impressum() {
               </Link>
             </p>
             <p className="text-xs text-muted-foreground/60 mt-3">
-              Umsatzsteuer-ID gemäß § 27a UStG: wird nach Gewerbeanmeldung ergänzt.
+              Diese Website wird als nicht-gewerbliches Angebot betrieben. Eine Umsatzsteuer-Identifikationsnummer
+              ist nicht erforderlich (§ 19 UStG – Kleinunternehmerregelung bzw. keine gewerbliche Tätigkeit).
             </p>
           </section>
           <div className="apple-divider" />
