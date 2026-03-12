@@ -3,18 +3,13 @@
 // ================================================
 
 import type { BlogArticle } from "./types";
-import claudeApiVsGpt from "./claude-api-vs-gpt-dach";
+import autoPerformanceTracker from "./auto-performance-tracker-launch";
 
 // Füge neue Artikel einfach hier hinzu:
 export const blogArticles: BlogArticle[] = [
-  claudeApiVsGpt,
+  autoPerformanceTracker,
   // import myArticle from "./mein-neuer-artikel";
   // myArticle,
 ];
-import autoPerformanceTracker from "./auto-performance-tracker-launch";
 
-export const blogArticles: BlogArticle[] = [
-  autoPerformanceTracker,
-  claudeApiVsGpt,
-];
 export type { BlogArticle } from "./types";
