@@ -50,7 +50,7 @@ Ich baue weiter: tiefere Statistiken, mehr Fahrzeugdaten, und mittelfristig eine
 
 Wenn du die App ausprobierst und Feedback hast — ich freue mich über jede ehrliche Rückmeldung: contact@melnychuk-anton.de
 
-→ [Auto Performance Tracker im App Store](https://apps.apple.com/app/auto-performance-tracker)`,
+→ Der Link kommt demnächst`,
 };
 
 export default article;
