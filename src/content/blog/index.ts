@@ -11,5 +11,10 @@ export const blogArticles: BlogArticle[] = [
   // import myArticle from "./mein-neuer-artikel";
   // myArticle,
 ];
+import autoPerformanceTracker from "./auto-performance-tracker-launch";
 
+export const blogArticles: BlogArticle[] = [
+  autoPerformanceTracker,
+  claudeApiVsGpt,
+];
 export type { BlogArticle } from "./types";
