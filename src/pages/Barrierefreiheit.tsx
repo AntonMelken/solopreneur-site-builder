@@ -85,7 +85,7 @@ export default function Barrierefreiheit() {
               >
                 contact@melnychuk-anton.de
               </a><br />
-              Telefon: +49 175 3797891
+
             </p>
             <p className="mt-3">
               Ich werde Ihre Anfrage so schnell wie möglich, spätestens jedoch innerhalb von zwei Wochen,

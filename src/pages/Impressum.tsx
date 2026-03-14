@@ -24,17 +24,10 @@ export default function Impressum() {
               <a href="mailto:contact@melnychuk-anton.de" className="underline hover:text-foreground transition-colors duration-300">
                 contact@melnychuk-anton.de
               </a><br />
-              Telefon:{" "}
-              <a href="tel:+491753797891" className="underline hover:text-foreground transition-colors duration-300">
-                +49 175 3797891
-              </a><br />
               Kontaktformular:{" "}
               <Link to="/#kontakt" className="underline hover:text-foreground transition-colors duration-300">
                 Zum Kontaktformular
               </Link>
-            </p>
-            <p className="text-xs text-muted-foreground/60 mt-3">
-              Umsatzsteuer-ID gemäß § 27a UStG: wird nach Gewerbeanmeldung ergänzt.
             </p>
           </section>
           <div className="apple-divider" />
