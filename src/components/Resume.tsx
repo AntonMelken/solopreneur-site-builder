@@ -4,9 +4,9 @@ import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 const experience: { period: string; title: string; company: string; description: string }[] = [
   {
     period: "2023 – heute",
-    title: "Independent iOS & Web Developer",
+    title: "Independent App & Web Developer",
     company: "Selbstständig · Remote",
-    description: "Konzeption, Design und Entwicklung von iOS-Apps und Web-Applikationen für den DACH-Markt. Verantwortlich für den gesamten Produktlebenszyklus — von der Idee bis zur Veröffentlichung im App Store.",
+    description: "Konzeption, Design und Entwicklung von Mobile Apps und Web-Applikationen für den DACH-Markt. Verantwortlich für den gesamten Produktlebenszyklus — von der Idee bis zur Veröffentlichung im App Store.",
   },
 ];
 

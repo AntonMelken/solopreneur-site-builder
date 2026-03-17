@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full border border-border bg-surface-1 surface-glow">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
           <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
-            Verfügbar für Projekte · iOS · Web · DACH
+            Verfügbar für Projekte · Mobile · Web · DACH
           </span>
         </div>
 
@@ -47,7 +47,7 @@ export default function Hero() {
 
         <p className="text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed text-base font-light">
           Ich entwickle durchdachte digitale Produkte — von der ersten Idee über das Interface bis zum
-          erfolgreichen Launch. iOS-Apps, Web-Applikationen und alles dazwischen.
+          erfolgreichen Launch. Mobile Apps, Web-Anwendungen und alles dazwischen.
           Mit Fokus auf Qualität, Nutzererfahrung und nachhaltigem Wachstum.
         </p>
 
