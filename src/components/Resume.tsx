@@ -21,7 +21,7 @@ const education: { period: string; title: string; institution: string; descripti
     period: "2022 – 2023",
     title: "Web Development & React",
     institution: "Selbststudium · Online-Kurse",
-    description: "Intensives Studium von React, TypeScript, Tailwind CSS und modernem Web-Engineering. Fokus auf produktionsreife Anwendungen und DSGVO-konforme Architekturen.",
+    description: "Intensives Studium von React, TypeScript, Tailwind CSS und modernem Web-Engineering. Fokus auf produktionsreife Anwendungen und skalierbare Architekturen.",
   },
 ];
 

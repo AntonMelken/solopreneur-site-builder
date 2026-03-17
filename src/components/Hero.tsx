@@ -41,7 +41,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl sm:text-2xl font-light text-muted-foreground mb-5 tracking-wide">
-          <span className="text-gradient-blue font-medium">iOS & Web-Entwickler</span>
+          <span className="text-gradient-blue font-medium">App & Web-Entwickler</span>
           {" "}· Independent Creator
         </p>
 
@@ -71,7 +71,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-8 mt-20 pt-8 border-t border-border/60">
           {[
             { value: "3+", label: "Veröffentlichte Apps" },
-            { value: "100%", label: "DSGVO-konform" },
+            { value: "DACH", label: "Marktfokus" },
             { value: "24h", label: "Antwortzeit" },
           ].map((item) => (
             <div key={item.label} className="text-center">

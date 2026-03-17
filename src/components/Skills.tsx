@@ -51,7 +51,7 @@ const groups = [
       { name: "App Store", badge: "badge-purple" },
       { name: "GitHub", badge: "badge-purple" },
       { name: "Vercel", badge: "badge-purple" },
-      { name: "DSGVO-konform", badge: "badge-purple" },
+      { name: "Git / CI", badge: "badge-purple" },
       { name: "Freemium-Modelle", badge: "badge-purple" },
       { name: "Subscription", badge: "badge-purple" },
     ],
