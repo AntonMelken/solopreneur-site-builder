@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Instagram, MapPin, Code2, Rocket } from "lucide
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 const highlights = [
-  { icon: Code2, label: "Full-Stack Entwickler", desc: "iOS, Web & APIs aus einer Hand" },
+  { icon: Code2, label: "Full-Stack Entwickler", desc: "Mobile, Web & APIs aus einer Hand" },
   { icon: Rocket, label: "Indie Creator", desc: "Von der Idee bis zum fertigen Produkt" },
   { icon: MapPin, label: "DACH-Markt", desc: "Fokus auf den deutschsprachigen Raum" },
 ];
@@ -61,7 +61,7 @@ export default function AboutMe() {
                 Vom ersten Konzept über das Interface-Design bis zum fertigen App-Store-Eintrag.
               </p>
               <p>
-                Mein Fokus liegt auf iOS und modernen Web-Technologien. Ich integriere
+                Mein Fokus liegt auf Mobile- und modernen Web-Technologien. Ich integriere
                 KI-gestützte Workflows nicht als Spielerei, sondern als festen Bestandteil
                 professioneller Softwareentwicklung — schneller, präziser, qualitativ hochwertiger.
               </p>

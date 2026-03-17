@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full border border-border bg-surface-1 surface-glow">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
           <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
-            Verfügbar für Projekte · iOS · Web · DACH
+            Verfügbar für Projekte · Mobile · Web · DACH
           </span>
         </div>
 
@@ -41,13 +41,13 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl sm:text-2xl font-light text-muted-foreground mb-5 tracking-wide">
-          <span className="text-gradient-blue font-medium">iOS & Web-Entwickler</span>
+          <span className="text-gradient-blue font-medium">App & Web-Entwickler</span>
           {" "}· Independent Creator
         </p>
 
         <p className="text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed text-base font-light">
           Ich entwickle durchdachte digitale Produkte — von der ersten Idee über das Interface bis zum
-          erfolgreichen Launch. iOS-Apps, Web-Applikationen und alles dazwischen.
+          erfolgreichen Launch. Mobile Apps, Web-Anwendungen und alles dazwischen.
           Mit Fokus auf Qualität, Nutzererfahrung und nachhaltigem Wachstum.
         </p>
 
@@ -71,7 +71,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-8 mt-20 pt-8 border-t border-border/60">
           {[
             { value: "3+", label: "Veröffentlichte Apps" },
-            { value: "100%", label: "DSGVO-konform" },
+            { value: "DACH", label: "Marktfokus" },
             { value: "24h", label: "Antwortzeit" },
           ].map((item) => (
             <div key={item.label} className="text-center">

@@ -4,9 +4,9 @@ import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 const experience: { period: string; title: string; company: string; description: string }[] = [
   {
     period: "2023 – heute",
-    title: "Independent iOS & Web Developer",
+    title: "Independent App & Web Developer",
     company: "Selbstständig · Remote",
-    description: "Konzeption, Design und Entwicklung von iOS-Apps und Web-Applikationen für den DACH-Markt. Verantwortlich für den gesamten Produktlebenszyklus — von der Idee bis zur Veröffentlichung im App Store.",
+    description: "Konzeption, Design und Entwicklung von Mobile Apps und Web-Applikationen für den DACH-Markt. Verantwortlich für den gesamten Produktlebenszyklus — von der Idee bis zur Veröffentlichung im App Store.",
   },
 ];
 
@@ -21,7 +21,7 @@ const education: { period: string; title: string; institution: string; descripti
     period: "2022 – 2023",
     title: "Web Development & React",
     institution: "Selbststudium · Online-Kurse",
-    description: "Intensives Studium von React, TypeScript, Tailwind CSS und modernem Web-Engineering. Fokus auf produktionsreife Anwendungen und DSGVO-konforme Architekturen.",
+    description: "Intensives Studium von React, TypeScript, Tailwind CSS und modernem Web-Engineering. Fokus auf produktionsreife Anwendungen und skalierbare Architekturen.",
   },
 ];
 

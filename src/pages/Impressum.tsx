@@ -29,9 +29,6 @@ export default function Impressum() {
                 Zum Kontaktformular
               </Link>
             </p>
-            <p className="text-xs text-muted-foreground/60 mt-3">
-              Umsatzsteuer-ID gemäß § 27a UStG: wird nach Gewerbeanmeldung ergänzt.
-            </p>
           </section>
           <div className="apple-divider" />
           <section>
