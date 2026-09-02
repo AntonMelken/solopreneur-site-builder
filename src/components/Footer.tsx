@@ -14,6 +14,13 @@ export default function Footer() {
           </p>
         </div>
         <nav aria-label="Rechtliche Links" className="flex items-center gap-6">
+          <a
+            href="/domain-check.html"
+            title="Sicherheitsüberwachung für Ihre Domain"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 rounded-sm"
+          >
+            Domain-Check
+          </a>
           {[
             { to: "/impressum", label: "Impressum" },
             { to: "/datenschutz", label: "Datenschutz" },

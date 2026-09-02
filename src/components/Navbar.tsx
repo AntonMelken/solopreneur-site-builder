@@ -7,6 +7,10 @@ const links = [
   { label: "Portfolio",   href: "#portfolio",  title: "Meine Projekte" },
   { label: "Skills",      href: "#skills",     title: "Technische Kompetenzen" },
   { label: "Blog",        href: "#blog",       title: "Blog & Insights" },
+  // Kein Anker, sondern eine eigene Seite: `/domain-check.html` liegt als
+  // statische Datei in `public/`. Ein einfaches <a href> genügt — die übrigen
+  // Links sind Anker auf dieselbe Seite, dieser verlässt sie.
+  { label: "Domain-Check", href: "/domain-check.html", title: "Sicherheitsüberwachung für Ihre Domain" },
   { label: "Kontakt",     href: "#kontakt",    title: "Kontakt aufnehmen" },
 ];
 
