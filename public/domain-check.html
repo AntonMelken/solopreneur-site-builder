@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain-Überwachung — Anton Melnychuk</title>
+<meta name="description" content="Kontinuierliche Sicherheitsüberwachung einer Domain: DNS, TLS-Zertifikat und HTTP-Sicherheitskopfzeilen. Passiv, von außen, ohne Eingriff.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://melnychuk-anton.de/domain-check.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: hsl(0 0% 3.5%);
+    --surface: hsl(0 0% 7%);
+    --line: hsl(0 0% 14%);
+    --ink: hsl(0 0% 96%);
+    --ink-2: hsl(0 0% 64%);
+    --ink-3: hsl(0 0% 45%);
+    --akzent: hsl(211 100% 52%);
+    --gut: hsl(150 55% 45%);
+    --warn: hsl(38 92% 55%);
+    --sans: 'Outfit', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font: 300 17px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 4.5rem 1.25rem 6rem; }
+  h1 {
+    font-weight: 600; font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .9rem;
+    text-wrap: balance;
+  }
+  .lead { color: var(--ink-2); font-size: 1.12rem; margin: 0 0 3rem; max-width: 34rem; }
+  h2 {
+    font-weight: 600; font-size: 1.02rem; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--ink-3);
+    margin: 3.5rem 0 1.1rem;
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: var(--akzent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--akzent); outline-offset: 3px;
+  }
+
+  .karten { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+  .karte {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.1rem 1.15rem;
+  }
+  .karte b { display: block; font-weight: 600; font-size: .97rem; margin-bottom: .3rem; }
+  .karte span { color: var(--ink-2); font-size: .92rem; line-height: 1.5; }
+
+  .nicht { border-left: 3px solid var(--line); padding-left: 1.15rem; color: var(--ink-2); }
+  .nicht b { color: var(--ink); font-weight: 600; }
+
+  form { margin: 1.25rem 0 0; display: flex; gap: .6rem; flex-wrap: wrap; }
+  input[type=text] {
+    flex: 1 1 16rem; min-width: 0;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 8px; padding: .8rem .95rem;
+    color: var(--ink); font: 400 1rem var(--mono);
+  }
+  input::placeholder { color: var(--ink-3); }
+  button {
+    background: var(--akzent); color: #fff; border: 0;
+    border-radius: 8px; padding: .8rem 1.4rem;
+    font: 600 1rem var(--sans); cursor: pointer;
+  }
+  button:hover { filter: brightness(1.1); }
+
+  .ergebnis { margin-top: 1.5rem; display: none; }
+  .ergebnis[data-an] { display: block; }
+  .satz {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; overflow: hidden;
+  }
+  .satz div { display: flex; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+  .satz div:last-child { border-bottom: 0; }
+  .satz dt {
+    flex: 0 0 5.5rem; color: var(--ink-3); font-size: .82rem;
+    text-transform: uppercase; letter-spacing: .06em; padding-top: .15rem;
+  }
+  .satz dd {
+    margin: 0; font: 500 .93rem/1.5 var(--mono); color: var(--ink);
+    word-break: break-all; flex: 1;
+  }
+  .fehler { color: var(--warn); font-size: .95rem; margin-top: .8rem; }
+  .hinweis { color: var(--ink-3); font-size: .92rem; margin-top: 1rem; }
+
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+    color: var(--ink-3); font-size: .9rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ergebnis[data-an] { animation: auf .25s ease-out; }
+    @keyframes auf { from { opacity: 0; transform: translateY(4px); } }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Ich sehe nach, ob mit Ihrer Domain etwas nicht stimmt.</h1>
+  <p class="lead">
+    Jeden Tag, automatisch, von außen. Läuft ein Zertifikat ab? Ist ein
+    DNS-Eintrag verschwunden? Fehlt eine Sicherheitskopfzeile, die gestern
+    noch da war? Sie erfahren es, bevor es jemand anders tut.
+  </p>
+
+  <h2>Was geprüft wird</h2>
+  <div class="karten">
+    <div class="karte">
+      <b>DNS</b>
+      <span>A, AAAA, MX, NS, TXT und CAA. Fehlende SPF-Sätze, zu wenige
+        Nameserver, verschwundene Einträge.</span>
+    </div>
+    <div class="karte">
+      <b>TLS-Zertifikat</b>
+      <span>Gültigkeit, Restlaufzeit, Protokollversion. Eine Warnung kommt,
+        solange noch Zeit zum Erneuern ist.</span>
+    </div>
+    <div class="karte">
+      <b>HTTP-Kopfzeilen</b>
+      <span>HSTS, CSP und die übrigen — mit einer Empfehlung, die zu Ihrem
+        Hosting passt statt zum Lehrbuch.</span>
+    </div>
+  </div>
+
+  <h2>Was ausdrücklich nicht passiert</h2>
+  <p class="nicht">
+    <b>Es wird nicht in Systeme eingedrungen, nichts getestet und nichts
+    verändert.</b> Keine Portscans, keine Anmeldeversuche, keine Suche nach
+    Lücken in Ihrer Anwendung. Alles, was hier gemessen wird, ist von außen
+    öffentlich sichtbar — genau das, was ein Angreifer als Erstes sieht.
+    Und ein fehlender Befund ist keine Zusicherung von Sicherheit.
+  </p>
+
+  <h2>Der erste Schritt gehört Ihnen</h2>
+  <p>
+    Ich prüfe keine Domain, die mir nicht ausdrücklich anvertraut wurde. Der
+    Nachweis läuft über einen DNS-Eintrag: wer ihn setzen kann, kontrolliert
+    die Zone — und die Veröffentlichung <em>ist</em> die Einwilligung.
+    Niemand kann sie für Sie geben.
+  </p>
+
+  <form id="f">
+    <input type="text" id="d" placeholder="ihre-domain.de" autocomplete="off"
+           spellcheck="false" aria-label="Ihre Domain">
+    <button type="submit">Eintrag anzeigen</button>
+  </form>
+  <p class="fehler" id="fehler" hidden></p>
+
+  <div class="ergebnis" id="e">
+    <div class="satz">
+      <div><dt>Name</dt><dd id="rname"></dd></div>
+      <div><dt>Typ</dt><dd>TXT</dd></div>
+      <div><dt>Wert</dt><dd id="rwert"></dd></div>
+    </div>
+    <p class="hinweis">
+      Der Eintrag wird hier in Ihrem Browser berechnet — die Domain verlässt
+      diese Seite nicht. Sobald er in Ihrer Zone steht, schreiben Sie mir:
+      <a href="mailto:contact@melnychuk-anton.de?subject=Domain-%C3%9Cberwachung">contact@melnychuk-anton.de</a>.
+      Den Eintrag können Sie jederzeit wieder entfernen; damit endet die
+      Überwachung sofort.
+    </p>
+  </div>
+
+  <h2>Was Sie bekommen</h2>
+  <p>
+    Einen Bericht mit einer Sicherheitszahl, den offenen Befunden samt Beleg,
+    und — ab dem zweiten Lauf — dem Vergleich zum Vortag. Jede Zahl im Bericht
+    lässt sich auf eine Messung zurückführen; was nicht belegt ist, steht
+    nicht drin.
+  </p>
+  <p>
+    Was das kostet und in welchem Takt Sie berichtet bekommen, besprechen wir,
+    wenn Sie den ersten Bericht gelesen haben. Vorher wäre es geraten.
+  </p>
+
+  <footer>
+    <a href="/">Anton Melnychuk</a> · Mobile Apps und Web-Anwendungen ·
+    <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>
+  </footer>
+
+</main>
+
+<script>
+// Der Token ist ABLEITBAR und kein Geheimnis: jeder kann ihn für jede Domain
+// ausrechnen. Der Beweis liegt nicht im Wissen, sondern im Veröffentlichen --
+// nur wer die DNS-Zone kontrolliert, kann den Satz setzen. Derselbe Gedanke
+// wie bei ACMEs HTTP-01-Challenge.
+const ZUSATZ = 'autofreelancer-v1';
+const PRAEFIX = 'autofreelancer-site-verification=';
+
+function normalisiere(roh) {
+  // **Muss Zeichen für Zeichen dasselbe liefern wie `scope.normalise`.**
+  // Zwei Umsetzungen einer Regel sind zwei Wahrheiten: wich diese Funktion
+  // ab, bekäme der Besucher einen Eintrag, der niemals verifiziert -- und
+  // niemand fände den Grund.
+  //
+  // Zwei Fallen, beide gemessen:
+  //   `www.` wird NICHT entfernt (Python behält es -- andere Hostnamen
+  //   können andere Sätze tragen), und Umlautdomains werden über `URL`
+  //   punycodiert, wie Pythons IDNA es tut.
+  let h = (roh || '').trim().toLowerCase();
+  if (!h) return '';
+  try {
+    h = new URL(h.includes('://') ? h : 'https://' + h).hostname;
+  } catch { return ''; }
+  h = h.replace(/\.$/, '');
+  if (!h || !h.includes('.')) return '';
+  if (!/^[a-z0-9.-]+$/.test(h)) return '';
+  if (/^[\d.]+$/.test(h)) return '';                 // IP-Adressen nicht
+  const endung = h.split('.').pop();
+  if (!/^[a-z]{2,}$/.test(endung)) return '';        // Endung nie nur Ziffern
+  return h;
+}
+
+async function token(host) {
+  const daten = new TextEncoder().encode(`${ZUSATZ}:${host}`);
+  const hash = await crypto.subtle.digest('SHA-256', daten);
+  return [...new Uint8Array(hash)]
+    .map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
+}
+
+const f = document.getElementById('f');
+const fehler = document.getElementById('fehler');
+const e = document.getElementById('e');
+
+f.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const host = normalisiere(document.getElementById('d').value);
+  if (!host) {
+    fehler.textContent = 'Bitte eine Domain wie ihre-domain.de eingeben — '
+      + 'keine IP-Adresse und keine einzelne Adresse mit Pfad.';
+    fehler.hidden = false;
+    e.removeAttribute('data-an');
+    return;
+  }
+  fehler.hidden = true;
+  document.getElementById('rname').textContent = `_autofreelancer.${host}`;
+  document.getElementById('rwert').textContent = PRAEFIX + await token(host);
+  e.setAttribute('data-an', '');
+});
+</script>
+</body>
+</html>
